@@ -1,0 +1,93 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.TreeItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.SplitPane?>
+
+
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ScrollPane?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="ict373_a2_33276203.Controller" >
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="New Tree" onAction="#handleNew"></MenuItem>
+            <MenuItem text="Open Tree" onAction="#handleOpen"></MenuItem>
+            <MenuItem text="Save Tree" onAction="#handleSave"></MenuItem>
+        </Menu>
+        <Menu text="About">
+        </Menu>
+    </MenuBar>
+
+    <Label fx:id="lblMain" text="Welcome to the Family Tree App!" style="-fx-padding: 10 10 10 10;"><font>
+        <Font name="Verdana" size="20.0"></Font>
+    </font></Label>
+    <Label text="Select an option to get started." style="-fx-padding: 0 0 0 10"></Label>
+
+    <HBox style="-fx-padding: 10 10 10 10" spacing="15">
+        <Button text="Load Tree" onAction="#handleOpen"></Button>
+        <Button text="Save Tree" onAction="#handleSave"></Button>
+        <Button text="Create New Tree" onAction="#handleNew"></Button>
+    </HBox>
+
+
+    <SplitPane prefHeight="100000">
+        <VBox>
+            <TreeView prefHeight="100000" fx:id="familyTree" layoutX="0" layoutY="0"></TreeView>
+        </VBox>
+        <ScrollPane fitToWidth="true">
+            <VBox style="-fx-padding: 10 10 10 10">
+                <Label text="Person Information"> <Font size="26.0"></Font> </Label>
+                <Label text="First name:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="fName"></TextField>
+                <Label text="Last name:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="lName"></TextField>
+                <Label text="Last name after marriage:"  style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="lNameAfter" style="-fx-padding: 10 0 0 0"></TextField>
+                <Label text="Gender:"></Label>
+                <HBox>
+                    <fx:define>
+                        <ToggleGroup fx:id="gender" />
+                    </fx:define>
+                    <RadioButton fx:id="male" style="-fx-padding: 10 0 10 0" toggleGroup="$gender" text="Male"></RadioButton>
+                    <RadioButton fx:id="female" style="-fx-padding: 10 0 10 10" toggleGroup="$gender" text="Female"></RadioButton>
+                </HBox>
+
+                <Label text="Biography:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextArea fx:id="textArea"></TextArea>
+
+                <Label text="Address" style="-fx-padding: 20 0 0 0"></Label>
+                <Label text="Street Name:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="streetName"></TextField>
+                <Label text="Street Number:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="streetNum"></TextField>
+                <Label text="Suburb:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="suburb"></TextField>
+                <Label text="Post Code:" style="-fx-padding: 10 0 0 0"></Label>
+                <TextField fx:id="postcode"></TextField>
+
+                <HBox style="-fx-padding: 10 0 0 0" spacing="15">
+                    <Button text="Edit Details" onAction="#handleEditDetails"></Button>
+                    <Button fx:id="addRelative" text="Add Relative" onAction="#handleAddRelative"></Button>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+
+    </SplitPane>
+    <HBox><Label fx:id="statusBar" style="-fx-padding: 2 2 2 2" text="Status..."></Label></HBox>
+</VBox>

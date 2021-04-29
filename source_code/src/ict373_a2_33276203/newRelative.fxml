@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.text.Font?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml" fitToWidth="true">
+    <VBox style="-fx-padding: 10 10 10 10">
+        <Label text="Type of Relative:"></Label>
+        <ComboBox fx:id="comboRel">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Child"/>
+                    <String fx:value="Parent"/>
+                    <String fx:value="Spouse"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label text="Person Information"> <Font size="26.0"></Font> </Label>
+        <Label text="First name:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newfName"></TextField>
+        <Label text="Last name:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newlName"></TextField>
+        <Label text="Last name after marriage:"  style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newlNameAfter" style="-fx-padding: 10 0 0 0"></TextField>
+        <Label text="Gender:"></Label>
+        <HBox>
+            <fx:define>
+                <ToggleGroup fx:id="newgender" />
+            </fx:define>
+            <RadioButton fx:id="newmale" style="-fx-padding: 10 0 10 0" toggleGroup="$gender" text="Male"></RadioButton>
+            <RadioButton fx:id="newfemale" style="-fx-padding: 10 0 10 10" toggleGroup="$gender" text="Female"></RadioButton>
+        </HBox>
+
+        <Label text="Biography:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextArea fx:id="newTextArea"></TextArea>
+
+        <Label text="Address" style="-fx-padding: 20 0 0 0"></Label>
+        <Label text="Street Name:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newstreetName"></TextField>
+        <Label text="Street Number:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newstreetNum"></TextField>
+        <Label text="Suburb:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newsuburb"></TextField>
+        <Label text="Post Code:" style="-fx-padding: 10 0 0 0"></Label>
+        <TextField fx:id="newpostcode"></TextField>
+
+        <HBox style="-fx-padding: 10 0 0 0" spacing="15">
+            <Button fx:id="newRelativeAdd" text="Add Relative" onAction="#handleNewRelative"></Button>
+        </HBox>
+    </VBox>
+</ScrollPane>
